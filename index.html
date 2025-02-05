@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My UX/UI Portfolio</title>
+    <title>My Portfolio</title>
     <style>
+        /* Basic Styles */
         body {
             font-family: sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f0f0f0;
             color: #333;
         }
 
@@ -20,14 +20,10 @@
             text-align: center;
         }
 
-        h1 {
-            margin-bottom: 10px;
-        }
-
         nav ul {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: 10px 0;
         }
 
         nav li {
@@ -44,28 +40,20 @@
             padding: 20px;
             margin: 20px;
             background-color: #fff;
+            border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
         }
 
-        .project {
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
+        h1, h2, h3 {
+            margin-bottom: 10px;
         }
 
-        .project img {
+        img {
             max-width: 100%;
             height: auto;
             display: block;
             margin: 10px auto;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-title {
-            font-weight: bold;
-            margin-bottom: 5px;
+            border-radius: 4px;
         }
 
         footer {
@@ -73,39 +61,103 @@
             color: #fff;
             padding: 10px;
             text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
 
-        /* Styles for Skills, Hobbies, and Contact */
-        .info-section {
-            display: flex; /* Use flexbox for layout */
-            flex-wrap: wrap; /* Allow items to wrap */
-            justify-content: space-around; /* Distribute items evenly */
-        }
-
-        .info-box {
-            width: 30%; /* Adjust width as needed */
+        /* Project Styles */
+        .project {
             margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
         }
 
-        .info-box h2 {
-            margin-top: 0; /* Remove default top margin for h2 */
+        .project:last-child {
+            border-bottom: none;
         }
 
-        /* Responsive adjustments */
+        /* About/Contact Styles */
+        .about-contact {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .about-contact > div {
+            width: 45%;
+            margin-bottom: 20px;
+        }
+
         @media (max-width: 768px) {
-            .info-box {
-                width: 45%; /* Adjust width for smaller screens */
+            .about-contact > div {
+                width: 90%;
             }
         }
 
-        @media (max-width: 500px) {
-            .info-box {
-                width: 90%; /* Full width on very small screens */
-            }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: 15% auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .modal-content {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Image Gallery Styles */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -123,54 +175,84 @@
         </nav>
     </header>
 
-    <section>
-        <h2>Featured Projects</h2>
-
-        <div class="project">
-            <img src="placeholder.jpg" alt="Project 1">
-            <h3 class="project-title">Project Title 1</h3>
-            <p>Short project description.</p>
-        </div>
-
-        <div class="project">
-            <img src="placeholder.jpg" alt="Project 2">
-            <h3 class="project-title">Project Title 2</h3>
-            <p>Another project description.</p>
-        </div>
-
-    </section>
-
-    <section class="info-section">  <div class="info-box">
-            <h2>Skills</h2>
-            <ul>
-                <li>User Research</li>
-                <li>Wireframing</li>
-                <li>Prototyping</li>
-                <li>Visual Design</li>
-                </ul>
-        </div>
-
-        <div class="info-box">
-            <h2>Hobbies</h2>
-            <ul>
-                <li>Photography</li>
-                <li>Reading</li>
-                <li>Hiking</li>
-                </ul>
-        </div>
-
-        <div class="info-box">
-            <h2>Contact</h2>
-            <p>Email: your.email@example.com</p>
-            <p>Phone: (123) 456-7890</p>
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-contact">
+            <div>
+                <img src="placeholder.jpg" alt="Your Photo" style="width: 200px; border-radius: 50%;">
             </div>
+            <div>
+                <p>Write your about me text here.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+
+        <div class="project">
+            <h3>Project Title 1</h3>
+            <div class="gallery">
+                <img src="project1-1.jpg" alt="Project 1 - Image 1">
+                <img src="project1-2.jpg" alt="Project 1 - Image 2">
+            </div>
+            <p>Description of Project 1.</p>
+        </div>
+
+        <div class="project">
+            <h3>Project Title 2</h3>
+            <div class="gallery">
+                <img src="project2-1.jpg" alt="Project 2 - Image 1">
+                <img src="project2-2.jpg" alt="Project 2 - Image 2">
+            </div>
+            <p>Description of Project 2.</p>
+        </div>
 
     </section>
 
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="about-contact">
+            <div>
+                <p>Contact info here.</p>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2023 My Portfolio</p>
     </footer>
+
+    <div id="myModal" class="modal">
+        <a href="#" class="close">&times;</a>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script>
+        // JavaScript for image gallery and modal
+        const modal = document.getElementById("myModal");
+        const modalImg = document.getElementById("img01");
+        const closeBtn = document.querySelector(".close");
+
+        const galleryImages = document.querySelectorAll(".gallery img");
+
+        galleryImages.forEach(img => {
+            img.onclick = function() {
+                modal.style.display = "block";
+                modalImg.src = this.src;
+            }
+        });
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 </html>
