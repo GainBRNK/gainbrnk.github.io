@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My UX/UI Portfolio</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .project {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .project img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Styles for Skills, Hobbies, and Contact */
+        .info-section {
+            display: flex; /* Use flexbox for layout */
+            flex-wrap: wrap; /* Allow items to wrap */
+            justify-content: space-around; /* Distribute items evenly */
+        }
+
+        .info-box {
+            width: 30%; /* Adjust width as needed */
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
+
+        .info-box h2 {
+            margin-top: 0; /* Remove default top margin for h2 */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .info-box {
+                width: 45%; /* Adjust width for smaller screens */
+            }
+        }
+
+        @media (max-width: 500px) {
+            .info-box {
+                width: 90%; /* Full width on very small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My UX/UI Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Featured Projects</h2>
+
+        <div class="project">
+            <img src="placeholder.jpg" alt="Project 1">
+            <h3 class="project-title">Project Title 1</h3>
+            <p>Short project description.</p>
+        </div>
+
+        <div class="project">
+            <img src="placeholder.jpg" alt="Project 2">
+            <h3 class="project-title">Project Title 2</h3>
+            <p>Another project description.</p>
+        </div>
+
+    </section>
+
+    <section class="info-section">  <div class="info-box">
+            <h2>Skills</h2>
+            <ul>
+                <li>User Research</li>
+                <li>Wireframing</li>
+                <li>Prototyping</li>
+                <li>Visual Design</li>
+                </ul>
+        </div>
+
+        <div class="info-box">
+            <h2>Hobbies</h2>
+            <ul>
+                <li>Photography</li>
+                <li>Reading</li>
+                <li>Hiking</li>
+                </ul>
+        </div>
+
+        <div class="info-box">
+            <h2>Contact</h2>
+            <p>Email: your.email@example.com</p>
+            <p>Phone: (123) 456-7890</p>
+            </div>
+
+    </section>
+
+
+    <footer>
+        <p>&copy; 2023 My Portfolio</p>
+    </footer>
+
+</body>
+</html>
